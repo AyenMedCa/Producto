@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: productodb
+    environment:
+      MYSQL_ROOT_PASSWORD: root   # Aquí estableces la contraseña para el usuario root
+      MYSQL_DATABASE: productodb  # Aquí defines la base de datos inicial
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - springboot-mysql-network
+
+volumes:
+  mysql_data:
+
+networks:
+  springboot-mysql-network:
