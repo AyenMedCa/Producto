@@ -7,6 +7,7 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -49,5 +50,15 @@ public class ProductoService implements IProductoService {
     public void delete(Long id) {
         Producto producto = productoRepository.findById(id).get();
         productoRepository.delete(producto);
+    }
+
+    @Override
+    public List<Producto> getAllProductos() {
+        return productoRepository.findAll();
+    }
+
+    @Override
+    public Boolean exist(Long id) {
+        return productoRepository.existsById(id);
     }
 }

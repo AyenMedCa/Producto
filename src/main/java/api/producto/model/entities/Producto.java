@@ -18,4 +18,4 @@ public class Producto {
     private String description;
     private Double price;
     private Integer stock;
-}
+} 
